@@ -18,13 +18,14 @@ public class Gun : MonoBehaviour {
 
     private float nextTimeToFire = 0f;
 
+    public VRTK.VRTK_ControllerEvents controllerEvents;
 	
 	// Update is called once per frame
 	void Update () {
 
         OVRInput.Update(); // Call before checking the input
 
-        if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) == 1f && Time.time >= nextTimeToFire)
+        if (controllerEvents.triggerPressed && Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
