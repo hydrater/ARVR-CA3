@@ -412,6 +412,7 @@ MonoBehaviour:
   Cam: {fileID: 0}
   muzzleFlash: {fileID: 0}
   impactEffect: {fileID: 0}
+  controllerEvents: {fileID: 0}
 --- !u!114 &114257909536263988
 MonoBehaviour:
   m_ObjectHideFlags: 1
