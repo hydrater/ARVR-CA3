@@ -12,17 +12,14 @@ public class GameManager : MonoBehaviour {
 	static IEnumerator spawnLoop;
 	public GameObject[] enemyUnits;
 	public Transform AIDestination;
+	[HideInInspector]
+	public float enemyCount = 5;
 
 	void Awake()
 	{
 		instance = this;
 		spawnLoop = spawnMachine ();
 		spawnPoints = GameObject.Find ("SpawnPoints").GetComponentsInChildren<Transform>();
-	}
-
-	void Update()
-	{
-		
 	}
 	
 	public void StartGame()
@@ -37,22 +34,23 @@ public class GameManager : MonoBehaviour {
 
 	IEnumerator spawnMachine()
 	{
-		float enemyCount = 5;
 		for (;;)
 		{
 			yield return new WaitForSeconds(Random.Range(1, (wave / (wave + 5)) - wave));
 			int desinatedSpawn = Random.Range(0, spawnPoints.Length);
 
 			// Code needs to change for other variants
-			Instantiate(enemyUnits[0], spawnPoints[desinatedSpawn].position, spawnPoints[desinatedSpawn].rotation);
+			GameObject temp = Instantiate(enemyUnits[0], spawnPoints[desinatedSpawn].position, spawnPoints[desinatedSpawn].rotation);
+			temp.GetComponent<EnemyUnit> ().hp = 1 + wave/3;
 
-			--enemyCount;
-			if (enemyCount == 0)
+			do 
 			{
-				++wave;
-				enemyCount = 3 + wave * 2;
-				waveUI.text = wave.ToString();
-			}
+				yield return null;
+			} while (enemyCount > 0);
+
+			++wave;
+			enemyCount = 3 + wave * 2;
+			waveUI.text = wave.ToString();
 		}
 	}
 

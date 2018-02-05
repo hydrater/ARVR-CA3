@@ -2021,7 +2021,8 @@ MonoBehaviour:
   cabinHP: 10
   scoreUI: {fileID: 1016042752}
   waveUI: {fileID: 69495156}
-  enemyUnits: []
+  enemyUnits:
+  - {fileID: 1270521118453524, guid: 7108e3c86504ef542ab64bf9fbdc49e7, type: 2}
   AIDestination: {fileID: 1715536705}
 --- !u!4 &1715536705
 Transform:

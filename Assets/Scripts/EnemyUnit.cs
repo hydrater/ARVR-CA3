@@ -35,6 +35,7 @@ public class EnemyUnit : MonoBehaviour {
 		if (hp < 0)
 		{
 			GameManager.instance.UpdateScore ();
+			--GameManager.instance.enemyCount;
 			Destroy (gameObject); //Replace with death animation
 		}
 	}

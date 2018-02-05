@@ -44,7 +44,7 @@ public class Gun : MonoBehaviour {
             EnemyUnit target = hit.transform.root.GetComponent<EnemyUnit>();
             if (target != null)
             {
-                target.DealDamage(10);
+                target.DealDamage(1);
             }
 
             if (hit.collider.sharedMaterial != null)
