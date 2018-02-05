@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance = null;
 	public Transform[] spawnPoints;
 	public int wave = 1, score = 0, cabinHP;
-	public Text scoreUI;
+	public Text scoreUI, waveUI;
 	static IEnumerator spawnLoop;
 	public GameObject[] enemyUnits;
 	public Transform AIDestination;
@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour {
 	{
 		instance = this;
 		spawnLoop = spawnMachine ();
+		spawnPoints = GameObject.Find ("SpawnPoints").GetComponentsInChildren<Transform>();
 	}
 
 	void Update()
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour {
 			{
 				++wave;
 				enemyCount = 3 + wave * 2;
+				waveUI.text = wave.ToString();
 			}
 		}
 	}
@@ -57,6 +59,6 @@ public class GameManager : MonoBehaviour {
 	public void UpdateScore()
 	{
 		++score;
-		scoreUI.text = "Score: " + score;
+		scoreUI.text = score.ToString ();
 	}
 }
