@@ -36,6 +36,7 @@ public class EnemyUnit : MonoBehaviour {
 		{
 			GameManager.instance.UpdateScore ();
 			--GameManager.instance.enemyCount;
+			Instantiate (Resources.Load ("DeathParticle"), transform.position+ Vector3.down, transform.rotation);
 			Destroy (gameObject); //Replace with death animation
 		}
 	}
