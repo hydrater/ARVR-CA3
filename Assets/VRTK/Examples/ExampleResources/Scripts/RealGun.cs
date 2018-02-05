@@ -16,6 +16,8 @@
         public float bulletLife = 5f;
 
         public GameObject bullet;
+
+        public float timer;
         //private GameObject trigger;
         //private RealGun_Slide slide;
         //private RealGun_SafetySwitch safetySwitch;
@@ -104,10 +106,8 @@
             //if (safetySwitch.safetyOff)
             //{
                 //slide.Fire();
-                FireBullet();
-                Debug.Log("Bullet Shot");
-                VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(controllerEvents.gameObject), 0.63f, 0.2f, 0.01f);
-
+                
+               
             //EnemyUnit target = hit.transform.root.GetComponent<EnemyUnit>();
             //if (target != null)
             //{
@@ -140,13 +140,19 @@
             //    VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(controllerEvents.gameObject), 0.08f, 0.1f, 0.01f);
             //}
         }
+        
+        public override void StopUsing(VRTK_InteractUse previousUsingObject = null)
+        {
+            base.StopUsing(previousUsingObject);
+            
+        }
 
         protected override void Awake()
         {
             base.Awake();
             //bullet = transform.Find("Bullet").gameObject;
             bullet.SetActive(false);
-
+            timer = Time.time;
             //trigger = transform.Find("TriggerHolder").gameObject;
 
             //slide = transform.Find("Slide").GetComponent<RealGun_Slide>();
@@ -170,6 +176,11 @@
             //{
             //    trigger.transform.localEulerAngles = new Vector3(0f, minTriggerRotation, 0f);
             //}
+            if (IsUsing() && timer < Time.time)
+            {
+                timer = Time.time +0.1f;
+                FireBullet();
+            }
         }
 
         private void FireBullet()
@@ -181,6 +192,8 @@
             Rigidbody rb = bulletClone.GetComponent<Rigidbody>();
             rb.AddForce(bullet.transform.forward * bulletSpeed);
             Destroy(bulletClone, bulletLife);
+            Debug.Log("Bullet Shot");
+            VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(controllerEvents.gameObject), 1f, 0.2f, 0.01f);
 
 
         }
