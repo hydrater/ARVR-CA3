@@ -10,22 +10,16 @@ public class EnemyUnit : MonoBehaviour {
 
 	void Start () 
 	{
+		agent = GetComponent<NavMeshAgent> ();
 		GetComponent<NavMeshAgent> ().SetDestination (GameManager.instance.AIDestination.position);
-		agent.SetDestination (GameManager.instance.gameObject.transform.position);
 	}
 
 	void Update()
 	{
-		if (!agent.pathPending)
+		if (Vector3.Distance(transform.position, GameManager.instance.AIDestination.position) < 2)
 		{
-			if (agent.remainingDistance <= agent.stoppingDistance)
-			{
-				if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
-				{
-					// Done
-					GetComponent<Animator>().SetBool("attacking", true);
-				}
-			}
+			agent.enabled = false;
+			GetComponent<Animator>().SetBool("attacking", true);
 		}
 	}
 
@@ -39,5 +33,10 @@ public class EnemyUnit : MonoBehaviour {
 			Instantiate (Resources.Load ("DeathParticle"), transform.position+ Vector3.down, transform.rotation);
 			Destroy (gameObject); //Replace with death animation
 		}
+	}
+
+	public void AttackCabin()
+	{
+		GameManager.instance.DealDamageToCabin ();
 	}
 }

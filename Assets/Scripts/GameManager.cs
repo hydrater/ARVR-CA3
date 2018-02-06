@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using VRTK;
 
 public class GameManager : MonoBehaviour {
 
@@ -9,39 +10,64 @@ public class GameManager : MonoBehaviour {
 	public Transform[] spawnPoints;
 	public int wave = 1, score = 0, cabinHP;
 	public Text scoreUI, waveUI;
-	static IEnumerator spawnLoop;
 	public GameObject[] enemyUnits;
 	public Transform AIDestination;
 	[HideInInspector]
 	public float enemyCount = 5;
 
+	public VRTK_InteractableObject temp;
+	IEnumerator game;
+	bool isRunning;
+
 	void Awake()
 	{
 		instance = this;
-		spawnLoop = spawnMachine ();
 		spawnPoints = GameObject.Find ("SpawnPoints").GetComponentsInChildren<Transform>();
+		temp = GameObject.Find ("M4A1").GetComponent<VRTK_InteractableObject> ();
+		game = spawnMachine();
+		AIDestination = transform;
+
+		StartGame ();
+	}
+
+	void Update()
+	{
+		if (temp.IsGrabbed() && !isRunning)
+		{
+			StartGame ();
+		}
 	}
 	
 	public void StartGame()
 	{
-		StartCoroutine(spawnMachine());
+		StartCoroutine (game);
+		isRunning = true;
 	}
 
 	public void EndGame()
 	{
-		StopCoroutine(spawnMachine());
+		StopCoroutine(game);
+		isRunning = false;
+		foreach (GameObject i in GameObject.FindGameObjectsWithTag("Enemy"))
+		{
+			Destroy (i);
+		}
 	}
 
 	IEnumerator spawnMachine()
 	{
 		for (;;)
 		{
-			yield return new WaitForSeconds(Random.Range(1, (wave / (wave + 5)) - wave));
-			int desinatedSpawn = Random.Range(0, spawnPoints.Length);
+			float enemyToSpawn = enemyCount;
+			for (float i = 0; i < enemyToSpawn; ++i)
+			{
+				yield return new WaitForSeconds(Random.Range(3, 5));
+				int desinatedSpawn = Random.Range(0, spawnPoints.Length);
 
-			// Code needs to change for other variants
-			GameObject temp = Instantiate(enemyUnits[0], spawnPoints[desinatedSpawn].position, spawnPoints[desinatedSpawn].rotation);
-			temp.GetComponent<EnemyUnit> ().hp = 1 + wave/3;
+				// Code needs to change for other variants
+				GameObject temp = Instantiate(enemyUnits[0], spawnPoints[desinatedSpawn].position, spawnPoints[desinatedSpawn].rotation);
+				temp.GetComponent<EnemyUnit> ().hp = 1 + wave/3;
+			}
 
 			do 
 			{
@@ -58,5 +84,14 @@ public class GameManager : MonoBehaviour {
 	{
 		++score;
 		scoreUI.text = score.ToString ();
+	}
+
+	public void DealDamageToCabin()
+	{
+		--cabinHP;
+		if (cabinHP < 1)
+		{
+			EndGame ();
+		}
 	}
 }
