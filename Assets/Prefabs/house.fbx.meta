@@ -13,6 +13,54 @@ ModelImporter:
     100010: Window frames
     100012: Windows
     100014: Wood Frames
+    100016: Camera
+    100018: Cube
+    100020: Cube.001
+    100022: Lamp
+    100024: CTRL_Hole
+    100026: CTRL_Hole.001
+    100028: CTRL_Hole.002
+    100030: CTRL_Hole.003
+    100032: Handle
+    100034: Handle.001
+    100036: Handle.002
+    100038: Handle.003
+    100040: House
+    100042: House.001
+    100044: Lamp.001
+    100046: Lamp.002
+    100048: Lamp.003
+    100050: Lamp.004
+    100052: Lamp.005
+    100054: Lamp.006
+    100056: Lamp.007
+    100058: Roofs
+    100060: Window.L
+    100062: Window.L.001
+    100064: Window.L.002
+    100066: Window.L.003
+    100068: Window.R
+    100070: Window.R.001
+    100072: Window.R.002
+    100074: Window.R.003
+    100076: Window_Group
+    100078: Window_Group.001
+    100080: Window_Group.002
+    100082: Window_Group.003
+    100084: Window_Group.004
+    100086: WindowFrame
+    100088: WindowFrame.001
+    100090: WindowFrame.002
+    100092: WindowFrame.003
+    100094: WindowGlass
+    100096: WindowGlass.001
+    100098: WindowGlass.002
+    100100: WindowGlass.003
+    100102: Windows_Sill
+    100104: Windows_Sill.001
+    100106: Windows_Sill.004
+    100108: Windows_Sill.005
+    100110: Wood
     400000: black
     400002: Door
     400004: //RootNode
@@ -21,8 +69,58 @@ ModelImporter:
     400010: Window frames
     400012: Windows
     400014: Wood Frames
+    400016: Camera
+    400018: Cube
+    400020: Cube.001
+    400022: Lamp
+    400024: CTRL_Hole
+    400026: CTRL_Hole.001
+    400028: CTRL_Hole.002
+    400030: CTRL_Hole.003
+    400032: Handle
+    400034: Handle.001
+    400036: Handle.002
+    400038: Handle.003
+    400040: House
+    400042: House.001
+    400044: Lamp.001
+    400046: Lamp.002
+    400048: Lamp.003
+    400050: Lamp.004
+    400052: Lamp.005
+    400054: Lamp.006
+    400056: Lamp.007
+    400058: Roofs
+    400060: Window.L
+    400062: Window.L.001
+    400064: Window.L.002
+    400066: Window.L.003
+    400068: Window.R
+    400070: Window.R.001
+    400072: Window.R.002
+    400074: Window.R.003
+    400076: Window_Group
+    400078: Window_Group.001
+    400080: Window_Group.002
+    400082: Window_Group.003
+    400084: Window_Group.004
+    400086: WindowFrame
+    400088: WindowFrame.001
+    400090: WindowFrame.002
+    400092: WindowFrame.003
+    400094: WindowGlass
+    400096: WindowGlass.001
+    400098: WindowGlass.002
+    400100: WindowGlass.003
+    400102: Windows_Sill
+    400104: Windows_Sill.001
+    400106: Windows_Sill.004
+    400108: Windows_Sill.005
+    400110: Wood
+    2000000: Camera
     2100000: No Name
     2100002: Material.001
+    2100004: Material
     2300000: black
     2300002: Door
     2300004: Roof
@@ -30,6 +128,40 @@ ModelImporter:
     2300008: Window frames
     2300010: Windows
     2300012: Wood Frames
+    2300014: Cube
+    2300016: Cube.001
+    2300018: CTRL_Hole
+    2300020: CTRL_Hole.001
+    2300022: CTRL_Hole.002
+    2300024: CTRL_Hole.003
+    2300026: Handle
+    2300028: Handle.001
+    2300030: Handle.002
+    2300032: Handle.003
+    2300034: House
+    2300036: House.001
+    2300038: Roofs
+    2300040: Window.L
+    2300042: Window.L.001
+    2300044: Window.L.002
+    2300046: Window.L.003
+    2300048: Window.R
+    2300050: Window.R.001
+    2300052: Window.R.002
+    2300054: Window.R.003
+    2300056: WindowFrame
+    2300058: WindowFrame.001
+    2300060: WindowFrame.002
+    2300062: WindowFrame.003
+    2300064: WindowGlass
+    2300066: WindowGlass.001
+    2300068: WindowGlass.002
+    2300070: WindowGlass.003
+    2300072: Windows_Sill
+    2300074: Windows_Sill.001
+    2300076: Windows_Sill.004
+    2300078: Windows_Sill.005
+    2300080: Wood
     3300000: black
     3300002: Door
     3300004: Roof
@@ -37,6 +169,40 @@ ModelImporter:
     3300008: Window frames
     3300010: Windows
     3300012: Wood Frames
+    3300014: Cube
+    3300016: Cube.001
+    3300018: CTRL_Hole
+    3300020: CTRL_Hole.001
+    3300022: CTRL_Hole.002
+    3300024: CTRL_Hole.003
+    3300026: Handle
+    3300028: Handle.001
+    3300030: Handle.002
+    3300032: Handle.003
+    3300034: House
+    3300036: House.001
+    3300038: Roofs
+    3300040: Window.L
+    3300042: Window.L.001
+    3300044: Window.L.002
+    3300046: Window.L.003
+    3300048: Window.R
+    3300050: Window.R.001
+    3300052: Window.R.002
+    3300054: Window.R.003
+    3300056: WindowFrame
+    3300058: WindowFrame.001
+    3300060: WindowFrame.002
+    3300062: WindowFrame.003
+    3300064: WindowGlass
+    3300066: WindowGlass.001
+    3300068: WindowGlass.002
+    3300070: WindowGlass.003
+    3300072: Windows_Sill
+    3300074: Windows_Sill.001
+    3300076: Windows_Sill.004
+    3300078: Windows_Sill.005
+    3300080: Wood
     4300000: black
     4300002: Door
     4300004: Windows
@@ -44,6 +210,48 @@ ModelImporter:
     4300008: Walls
     4300010: Roof
     4300012: Wood Frames
+    4300014: Cube.001
+    4300016: Cube
+    4300018: WindowFrame.003
+    4300020: Window.L.003
+    4300022: Handle.003
+    4300024: Window.R.003
+    4300026: Handle.002
+    4300028: Windows_Sill.005
+    4300030: WindowGlass.003
+    4300032: CTRL_Hole.003
+    4300034: CTRL_Hole.002
+    4300036: WindowFrame.002
+    4300038: WindowGlass.002
+    4300040: Windows_Sill.004
+    4300042: Window.R.002
+    4300044: Window.L.002
+    4300046: WindowFrame.001
+    4300048: Window.L.001
+    4300050: Window.R.001
+    4300052: Windows_Sill.001
+    4300054: WindowGlass.001
+    4300056: CTRL_Hole.001
+    4300058: CTRL_Hole
+    4300060: WindowFrame
+    4300062: WindowGlass
+    4300064: Windows_Sill
+    4300066: Window.R
+    4300068: Handle.001
+    4300070: Window.L
+    4300072: Handle
+    4300074: House.001
+    4300076: Wood
+    4300078: Roofs
+    4300080: House
+    10800000: Lamp
+    10800002: Lamp.001
+    10800004: Lamp.002
+    10800006: Lamp.003
+    10800008: Lamp.004
+    10800010: Lamp.005
+    10800012: Lamp.006
+    10800014: Lamp.007
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -87,8 +295,6 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    preserveHierarchy: 0
-    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
