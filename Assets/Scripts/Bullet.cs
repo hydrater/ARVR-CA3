@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour {
     {
         if (col.gameObject.tag == "Enemy")
         {
-            //Insert Damage here
+            GetComponent<EnemyUnit>().DealDamage(1);//Insert Damage here
 
             //Insert fleshHitEffects here
             Destroy(col.gameObject);
