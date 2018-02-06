@@ -1,78 +1,97 @@
 fileFormatVersion: 2
-guid: 91d18ddcbb86452418516c36ec7224ab
-timeCreated: 1517907507
+guid: d80a8a4b07394ab488a4cb0f3b0c2680
+timeCreated: 1517906502
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: CTRL_Hole
     100002: Cube
-    100004: Cube.001
-    100006: Cube.002
+    100004: Cube_001
+    100006: Cube_002
     100008: Handle
-    100010: Handle.001
+    100010: Handle_001
     100012: //RootNode
     100014: Roof
-    100016: Window.L
-    100018: Window.L.001
-    100020: Window.R
-    100022: Windows_Sill
+    100016: Window_Group
+    100018: Window_L
+    100020: Window_L_001
+    100022: Window_R
+    100024: WindowFrame
+    100026: Windows_Sill
     400000: CTRL_Hole
     400002: Cube
-    400004: Cube.001
-    400006: Cube.002
+    400004: Cube_001
+    400006: Cube_002
     400008: Handle
-    400010: Handle.001
+    400010: Handle_001
     400012: //RootNode
     400014: Roof
-    400016: Window.L
-    400018: Window.L.001
-    400020: Window.R
-    400022: Windows_Sill
+    400016: Window_Group
+    400018: Window_L
+    400020: Window_L_001
+    400022: Window_R
+    400024: WindowFrame
+    400026: Windows_Sill
     2300000: CTRL_Hole
     2300002: Cube
-    2300004: Cube.001
-    2300006: Cube.002
+    2300004: Cube_001
+    2300006: Cube_002
     2300008: Handle
-    2300010: Handle.001
+    2300010: Handle_001
     2300012: Roof
-    2300014: Window.L
-    2300016: Window.L.001
-    2300018: Window.R
-    2300020: Windows_Sill
+    2300014: Window_L
+    2300016: Window_L_001
+    2300018: Window_R
+    2300020: WindowFrame
+    2300022: Windows_Sill
     3300000: CTRL_Hole
     3300002: Cube
-    3300004: Cube.001
-    3300006: Cube.002
+    3300004: Cube_001
+    3300006: Cube_002
     3300008: Handle
-    3300010: Handle.001
+    3300010: Handle_001
     3300012: Roof
-    3300014: Window.L
-    3300016: Window.L.001
-    3300018: Window.R
-    3300020: Windows_Sill
-    4300000: Cube.002
-    4300002: CTRL_Hole
-    4300004: Window.L.001
-    4300006: Windows_Sill
-    4300008: Window.R
-    4300010: Handle.001
-    4300012: Window.L
-    4300014: Handle
-    4300016: Cube
-    4300018: Roof
-    4300020: Cube.001
+    3300014: Window_L
+    3300016: Window_L_001
+    3300018: Window_R
+    3300020: WindowFrame
+    3300022: Windows_Sill
+    4300000: Cube_002
+    4300002: Cube
+    4300004: Roof
+    4300006: Cube_001
+    4300008: CTRL_Hole
+    4300010: WindowFrame
+    4300012: Window_L_001
+    4300014: Windows_Sill
+    4300016: Window_R
+    4300018: Handle_001
+    4300020: Window_L
+    4300022: Handle
+    7400000: Default Take
+    9500000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: aafbd9312aa676c4aa3b78cc6282fa1f, type: 2}
+      name: Material_001
+    second: {fileID: 2100000, guid: 1ded5599ddcf9694fbddbfb36dbb27b9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a3bc2606fbbbb2442aba91f1d64ef6fe, type: 2}
+      name: Material_001__wood_OldWideFloorPlanksStaggered_2k_alb_tga
+    second: {fileID: 2100000, guid: 3caced46d000b224da1443b3890b9592, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_001__wood_guiRoundedLogCabin_1k_alb_tga
+    second: {fileID: 2100000, guid: 5ff8a87ca5897da4f8c4edae25b1d8bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: unnamed
+    second: {fileID: 2100000, guid: 87c9c8b919833f740a532b3b0e5d61cf, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -144,7 +163,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
