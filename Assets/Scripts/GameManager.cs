@@ -42,6 +42,10 @@ public class GameManager : MonoBehaviour {
 	{
 		StartCoroutine (game);
 		isRunning = true;
+		waveUI.text = "1";
+		wave = 1;
+		score = 0;
+		scoreUI.text = "0";
 	}
 
 	public void EndGame()
