@@ -17,6 +17,7 @@ public class Gun : MonoBehaviour {
     public GameObject impactEffect;
 
     private float nextTimeToFire = 0f;
+    //private Animator
 
     public VRTK.VRTK_ControllerEvents controllerEvents;
 	

@@ -28,6 +28,7 @@
         //private Collider safetySwitchCollider;
 
         private VRTK_ControllerEvents controllerEvents;
+        public Animator gunAnim;
 
         //private float minTriggerRotation = -10f;
         //private float maxTriggerRotation = 45f;
@@ -180,21 +181,23 @@
             {
                 timer = Time.time +0.1f;
                 FireBullet();
+                gunAnim.SetBool("Shoot", true);
             }
+            else
+                gunAnim.SetBool("Shoot", false);
+
         }
 
         private void FireBullet()
         {
-            muzzleFlash.Play();
-
             GameObject bulletClone = Instantiate(bullet, bullet.transform.position, bullet.transform.rotation) as GameObject;
             bulletClone.SetActive(true);
             Rigidbody rb = bulletClone.GetComponent<Rigidbody>();
             rb.AddForce(bullet.transform.forward * bulletSpeed);
             Destroy(bulletClone, bulletLife);
             Debug.Log("Bullet Shot");
+            muzzleFlash.Play();
             VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(controllerEvents.gameObject), 1f, 0.2f, 0.01f);
-
 
         }
     }
