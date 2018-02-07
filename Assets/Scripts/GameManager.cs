@@ -29,8 +29,8 @@ public class GameManager : MonoBehaviour {
 		temp = GameObject.Find ("M4A1").GetComponent<VRTK_InteractableObject> ();
 		game = spawnMachine();
 		AIDestination = transform;
-
-        StartGame ();
+        isRunning = false;
+        deathText.text = " ";
     }
 
 	void Update()
@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour {
 	
 	public void StartGame()
     {
-        StartCoroutine(game);
         inGameSound.Play();
         isRunning = true;
 		waveUI.text = "1";
@@ -54,7 +53,11 @@ public class GameManager : MonoBehaviour {
 		ammoCount.text = "Ammo 30/30";
 		cabinHealth.text = "Health 100%";
 		deathText.text = " ";
-	}
+        cabinHP = 10;
+        enemyCount = 5;
+        game = spawnMachine();
+        StartCoroutine(game);
+    }
 
 	public void EndGame()
 	{
@@ -77,6 +80,7 @@ public class GameManager : MonoBehaviour {
 		for (;;)
 		{
 			float enemyToSpawn = enemyCount;
+            Debug.Log(enemyToSpawn);
 			for (float i = 0; i < enemyToSpawn; ++i)
 			{
 				yield return new WaitForSeconds(Random.Range(3, 5));
@@ -85,6 +89,7 @@ public class GameManager : MonoBehaviour {
 				// Code needs to change for other variants
 				GameObject temp = Instantiate(enemyUnits[0], spawnPoints[desinatedSpawn].position, spawnPoints[desinatedSpawn].rotation);
 				temp.GetComponent<EnemyUnit> ().hp = 1 + wave/3;
+                Debug.Log("reached");
 			}
 
 			do 
