@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance = null;
 	public Transform[] spawnPoints;
 	public int wave = 1, score = 0, cabinHP;
-	public Text scoreUI, waveUI;
+	public Text scoreUI, waveUI, ammoCount, cabinHealth;
 	public GameObject[] enemyUnits;
 	public Transform AIDestination;
 	[HideInInspector]
@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour {
 		wave = 1;
 		score = 0;
 		scoreUI.text = "0";
+		ammoCount.text = "Ammo 30/30";
+		cabinHealth.text = "Health 100%";
 	}
 
 	public void EndGame()
@@ -84,6 +86,11 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	public void updateAmmoCount(int bulletShot)
+	{
+		ammoCount.text = "Ammo " + (30 - bulletShot) + "/30";
+	}
+
 	public void UpdateScore()
 	{
 		++score;
@@ -93,6 +100,7 @@ public class GameManager : MonoBehaviour {
 	public void DealDamageToCabin()
 	{
 		--cabinHP;
+		cabinHealth.text = "Health " + cabinHP;
 		if (cabinHP < 1)
 		{
 			EndGame ();

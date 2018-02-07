@@ -4,21 +4,10 @@
 
     public class RealGun : VRTK_InteractableObject
     {
-
-
         //public float damage = 10f;
         //public float range = 100f;
         //public float fireRate = 15f;
-
-        public ParticleSystem muzzleFlash;
-
-        public float bulletSpeed = 200f;
-        public float bulletLife = 5f;
-
-        public GameObject bullet;
-
-        public float timer;
-        //private GameObject trigger;
+		//private GameObject trigger;
         //private RealGun_Slide slide;
         //private RealGun_SafetySwitch safetySwitch;
 
@@ -26,6 +15,21 @@
         //private Collider slideCollider;
         //private Rigidbody safetySwitchRigidbody;
         //private Collider safetySwitchCollider;
+
+        public ParticleSystem muzzleFlash;
+
+        public float bulletSpeed = 200f;
+        public float bulletLife = 5f;
+
+		public static int bulletShot = 0;
+		private int MagazineSize = 30;
+
+		public Transform GunSpawn;
+
+        public GameObject bullet;
+
+        public float timer;
+        
 
         private VRTK_ControllerEvents controllerEvents;
         public Animator gunAnim;
@@ -190,15 +194,28 @@
 
         private void FireBullet()
         {
-            GameObject bulletClone = Instantiate(bullet, bullet.transform.position, bullet.transform.rotation) as GameObject;
-            bulletClone.SetActive(true);
-            Rigidbody rb = bulletClone.GetComponent<Rigidbody>();
-            rb.AddForce(bullet.transform.forward * bulletSpeed);
-            Destroy(bulletClone, bulletLife);
-            Debug.Log("Bullet Shot");
-            muzzleFlash.Play();
-            VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(controllerEvents.gameObject), 1f, 0.2f, 0.01f);
-
+			if (bulletShot < MagazineSize)
+			{
+				GameObject bulletClone = Instantiate(bullet, bullet.transform.position, bullet.transform.rotation) as GameObject;
+				bulletClone.SetActive(true);
+				Rigidbody rb = bulletClone.GetComponent<Rigidbody>();
+				rb.AddForce(bullet.transform.forward * bulletSpeed);
+				Destroy(bulletClone, bulletLife);
+				Debug.Log("Bullet Shot");
+				muzzleFlash.Play();
+				VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(controllerEvents.gameObject), 1f, 0.2f, 0.01f);
+				bulletShot++;
+				GameManager.instance.updateAmmoCount(bulletShot);
+				}
         }
-    }
+
+		private void OnCollisionEnter(Collision collision)
+		{
+			if (collision.gameObject.tag == "Floor")
+			{
+				bulletShot = 0;
+				gameObject.transform.position = GunSpawn.transform.position;
+			}
+		}
+	}
 }

@@ -16,6 +16,10 @@ TagManager:
   - Magazine
   - Gun
   - Enemy
+  - Fire
+  - TeleportIgnore
+  - table
+  - Floor
   layers:
   - Default
   - TransparentFX
