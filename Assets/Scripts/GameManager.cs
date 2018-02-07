@@ -38,19 +38,21 @@ public class GameManager : MonoBehaviour {
 
 	void Update()
 	{
-        if (!isRunning)
-        {
-            timeLeft -= Time.deltaTime;
-            if (timeLeft < 0)
-            {
-                if (temp.IsGrabbed())
-                {
+		if (OVRInput.GetActiveController() != OVRInput.Controller.Touchpad)
+		{
+			if (!isRunning)
+			{
+				timeLeft -= Time.deltaTime;
+				if (timeLeft < 0)
+				{
+					if (temp.IsGrabbed())
+					{
 
-                    StartGame();
-                }
-            }
-        }
-        Debug.Log(isRunning);
+						StartGame();
+					}
+				}
+			}
+		}
 	}
 	
 	public void StartGame()
