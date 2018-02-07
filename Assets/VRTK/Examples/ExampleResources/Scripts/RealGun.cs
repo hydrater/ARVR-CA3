@@ -214,6 +214,7 @@
 			{
 				bulletShot = 0;
 				gameObject.transform.position = GunSpawn.transform.position;
+				gameObject.transform.rotation = gameObject.transform.rotation;
                 GameManager.instance.updateAmmoCount(bulletShot);
             }
 		}
