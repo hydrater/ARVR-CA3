@@ -486,7 +486,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &181216897
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1689,7 +1689,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 1501795150}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 0.5
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -1706,8 +1706,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 685493352}
   m_LocalRotation: {x: -0.0004721619, y: 0.99813396, z: -0.060563013, w: -0.0077820416}
-  m_LocalPosition: {x: 41.432217, y: -4.3407345, z: -24.94432}
-  m_LocalScale: {x: 0.37383178, y: 0.37383178, z: 0.37383178}
+  m_LocalPosition: {x: 42.972263, y: 7.689546, z: 73.81373}
+  m_LocalScale: {x: 0.0017921147, y: 0.0017921147, z: 0.0017921147}
   m_Children:
   - {fileID: 1257184771}
   - {fileID: 1521567697}
@@ -2133,7 +2133,7 @@ GameObject:
   - component: {fileID: 894625082}
   - component: {fileID: 894625081}
   m_Layer: 5
-  m_Name: Text
+  m_Name: cabinHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2169,7 +2169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4305,7 +4305,7 @@ GameObject:
   - component: {fileID: 1521567699}
   - component: {fileID: 1521567698}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ammoHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4341,7 +4341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4655,7 +4655,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 1333633292}
   bulletSpeed: 200
   bulletLife: 5
-  GunSpawn: {fileID: 0}
+  GunSpawn: {fileID: 1076401253}
   bullet: {fileID: 1864948766}
   timer: 0
   gunAnim: {fileID: 970688203}
@@ -4973,6 +4973,8 @@ MonoBehaviour:
   cabinHP: 10
   scoreUI: {fileID: 1016042752}
   waveUI: {fileID: 69495156}
+  ammoCount: {fileID: 1521567698}
+  cabinHealth: {fileID: 894625081}
   enemyUnits:
   - {fileID: 1270521118453524, guid: 7108e3c86504ef542ab64bf9fbdc49e7, type: 2}
   AIDestination: {fileID: 1715536705}
@@ -5807,7 +5809,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.019968329, y: 0.07892669, z: 0.05}
+  m_Size: {x: 0.21, y: 0.07892669, z: 0.17}
   m_Center: {x: 0.000992656, y: -0.014463345, z: 0}
 --- !u!54 &1960520523
 Rigidbody:
@@ -5833,7 +5835,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1960520521}
   m_LocalRotation: {x: -0, y: -0.7266667, z: -0, w: 0.6869902}
-  m_LocalPosition: {x: -1.5995013, y: -0.61000013, z: 1.3724453}
+  m_LocalPosition: {x: 3.72, y: -0.61000013, z: 1.37}
   m_LocalScale: {x: -488.80307, y: -17.327795, z: -206.66031}
   m_Children: []
   m_Father: {fileID: 414441753}

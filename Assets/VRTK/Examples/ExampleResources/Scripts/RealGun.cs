@@ -201,7 +201,6 @@
 				Rigidbody rb = bulletClone.GetComponent<Rigidbody>();
 				rb.AddForce(bullet.transform.forward * bulletSpeed);
 				Destroy(bulletClone, bulletLife);
-				Debug.Log("Bullet Shot");
 				muzzleFlash.Play();
 				VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(controllerEvents.gameObject), 1f, 0.2f, 0.01f);
 				bulletShot++;
@@ -215,7 +214,8 @@
 			{
 				bulletShot = 0;
 				gameObject.transform.position = GunSpawn.transform.position;
-			}
+                GameManager.instance.updateAmmoCount(bulletShot);
+            }
 		}
 	}
 }

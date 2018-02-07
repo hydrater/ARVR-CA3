@@ -20,6 +20,7 @@ TagManager:
   - TeleportIgnore
   - table
   - Floor
+  - Bullet
   layers:
   - Default
   - TransparentFX

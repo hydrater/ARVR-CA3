@@ -22,10 +22,10 @@ public class Bullet : MonoBehaviour {
     {
         if (col.gameObject.tag == "Enemy")
         {
-            GetComponent<EnemyUnit>().DealDamage(1);//Insert Damage here
+            col.gameObject.GetComponent<EnemyUnit>().DealDamage(1);//Insert Damage here
 
             //Insert fleshHitEffects here
-            Destroy(col.gameObject);
+            Destroy(gameObject);
         }
     }
 }

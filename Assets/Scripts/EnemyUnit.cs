@@ -12,6 +12,7 @@ public class EnemyUnit : MonoBehaviour {
 	{
 		agent = GetComponent<NavMeshAgent> ();
 		GetComponent<NavMeshAgent> ().SetDestination (GameManager.instance.AIDestination.position);
+        hp = 10;
 	}
 
 	void Update()
@@ -26,7 +27,8 @@ public class EnemyUnit : MonoBehaviour {
 	public void DealDamage(int damage)
 	{
 		hp -= damage;
-		if (hp == 0)
+        Debug.Log(hp);
+		if (hp <= 0)
 		{
 			GameManager.instance.UpdateScore ();
 			--GameManager.instance.enemyCount;
@@ -39,4 +41,5 @@ public class EnemyUnit : MonoBehaviour {
 	{
 		GameManager.instance.DealDamageToCabin ();
 	}
+
 }
