@@ -13,12 +13,8 @@ public class ButtonInteract : MonoBehaviour {
 			switch (buttonID)
 			{
 			case 0:
-				
-				break;
-
-			case 1:
-				Application.Quit ();
-				break;
+					Application.Quit();
+					break;
 			}
 		}
 	}

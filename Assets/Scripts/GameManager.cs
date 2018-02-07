@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance = null;
 	public Transform[] spawnPoints;
 	public int wave = 1, score = 0, cabinHP;
-	public Text scoreUI, waveUI, ammoCount, cabinHealth;
+	public Text scoreUI, waveUI, ammoCount, cabinHealth, deathText;
 	public GameObject[] enemyUnits;
 	public Transform AIDestination;
 	[HideInInspector]
@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour {
 		scoreUI.text = "0";
 		ammoCount.text = "Ammo 30/30";
 		cabinHealth.text = "Health 100%";
+		deathText.text = " ";
 	}
 
 	public void EndGame()
@@ -58,6 +59,10 @@ public class GameManager : MonoBehaviour {
 		{
 			Destroy (i);
 		}
+		string DeathText = "Game Over!\nWaves Survived " + wave + "\nScore " + score;
+		deathText.text = DeathText.Replace("\\n", "\n");
+		ammoCount.text = " ";
+		cabinHealth.text = " ";
 	}
 
 	IEnumerator spawnMachine()
@@ -100,7 +105,7 @@ public class GameManager : MonoBehaviour {
 	public void DealDamageToCabin()
 	{
 		--cabinHP;
-		cabinHealth.text = "Health " + cabinHP;
+		cabinHealth.text = "Health " + cabinHP * 10 + "%";
 		if (cabinHP < 1)
 		{
 			EndGame ();
