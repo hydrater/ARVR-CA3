@@ -32,7 +32,7 @@
         
 
         private VRTK_ControllerEvents controllerEvents;
-        public Animator gunAnim;
+        public AudioSource gunSound;
 
         //private float minTriggerRotation = -10f;
         //private float maxTriggerRotation = 45f;
@@ -185,10 +185,7 @@
             {
                 timer = Time.time +0.1f;
                 FireBullet();
-                gunAnim.SetBool("Shoot", true);
             }
-            else
-                gunAnim.SetBool("Shoot", false);
 
         }
 
@@ -197,6 +194,7 @@
 			if (bulletShot < MagazineSize)
 			{
 				GameObject bulletClone = Instantiate(bullet, bullet.transform.position, bullet.transform.rotation) as GameObject;
+                gunSound.Play();
 				bulletClone.SetActive(true);
 				Rigidbody rb = bulletClone.GetComponent<Rigidbody>();
 				rb.AddForce(bullet.transform.forward * bulletSpeed);

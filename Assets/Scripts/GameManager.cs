@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour {
 	[HideInInspector]
 	public float enemyCount = 5;
 
+    public AudioSource inGameSound;
+    public AudioSource gameEndSound;
+
 	public VRTK_InteractableObject temp;
 	IEnumerator game;
 	bool isRunning;
@@ -27,21 +30,23 @@ public class GameManager : MonoBehaviour {
 		game = spawnMachine();
 		AIDestination = transform;
 
-		StartGame ();
-	}
+        StartGame ();
+    }
 
 	void Update()
 	{
 		if (temp.IsGrabbed() && !isRunning)
-		{
-			StartGame ();
+        {
+            StartGame ();
 		}
+        Debug.Log(isRunning);
 	}
 	
 	public void StartGame()
-	{
-		StartCoroutine (game);
-		isRunning = true;
+    {
+        StartCoroutine(game);
+        inGameSound.Play();
+        isRunning = true;
 		waveUI.text = "1";
 		wave = 1;
 		score = 0;
@@ -54,6 +59,8 @@ public class GameManager : MonoBehaviour {
 	public void EndGame()
 	{
 		StopCoroutine(game);
+        inGameSound.Stop();
+        gameEndSound.Play();
 		isRunning = false;
 		foreach (GameObject i in GameObject.FindGameObjectsWithTag("Enemy"))
 		{
