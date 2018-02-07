@@ -26,7 +26,7 @@ public class EnemyUnit : MonoBehaviour {
 	public void DealDamage(int damage)
 	{
 		hp -= damage;
-		if (hp < 0)
+		if (hp == 0)
 		{
 			GameManager.instance.UpdateScore ();
 			--GameManager.instance.enemyCount;
