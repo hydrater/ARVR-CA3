@@ -3441,7 +3441,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1270521118453524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.48985, y: 5.017396, z: 66.31194}
+  m_LocalPosition: {x: 37.20778, y: 5.5468884, z: 68.41618}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4615192979643770}
@@ -3908,6 +3908,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
+  BloodSplatter: {fileID: 1661102458867918, guid: 8f683e4853c5a704f86e8260419fd15a,
+    type: 2}
+  dieSound: {fileID: 0}
 --- !u!136 &136836141801063676
 CapsuleCollider:
   m_ObjectHideFlags: 1

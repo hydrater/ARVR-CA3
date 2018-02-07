@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour {
 
     public AudioSource inGameSound;
     public AudioSource gameEndSound;
+    public AudioSource cabinDamageSound;
+    public AudioSource enemyDieSound;
 
 	public VRTK_InteractableObject temp;
 	IEnumerator game;
@@ -127,6 +129,7 @@ public class GameManager : MonoBehaviour {
 
 	public void DealDamageToCabin()
 	{
+        cabinDamageSound.Play();
 		--cabinHP;
 		cabinHealth.text = "Health " + cabinHP * 10 + "%";
 		if (cabinHP < 1)

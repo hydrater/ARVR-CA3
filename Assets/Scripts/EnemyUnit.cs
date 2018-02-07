@@ -7,6 +7,7 @@ public class EnemyUnit : MonoBehaviour {
 
 	public int hp;
     public GameObject BloodSplatter;
+   
 	NavMeshAgent agent;
 
 	void Start () 
@@ -29,6 +30,7 @@ public class EnemyUnit : MonoBehaviour {
 		hp -= damage;
 		if (hp <= 0)
 		{
+            GameManager.instance.enemyDieSound.Play();
 			GameManager.instance.UpdateScore ();
 			--GameManager.instance.enemyCount;
 			Instantiate (BloodSplatter, transform.position, transform.rotation);
