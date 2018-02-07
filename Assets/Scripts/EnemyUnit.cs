@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class EnemyUnit : MonoBehaviour {
 
 	public int hp;
+    public GameObject BloodSplatter;
+   
 	NavMeshAgent agent;
 
 	void Start () 
@@ -28,9 +30,10 @@ public class EnemyUnit : MonoBehaviour {
 		hp -= damage;
 		if (hp <= 0)
 		{
+            GameManager.instance.enemyDieSound.Play();
 			GameManager.instance.UpdateScore ();
 			--GameManager.instance.enemyCount;
-			Instantiate (Resources.Load ("DeathParticle"), transform.position+ Vector3.down, transform.rotation);
+			Instantiate (BloodSplatter, transform.position, transform.rotation);
 			Destroy (gameObject); //Replace with death animation
 		}
 	}

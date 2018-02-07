@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 
     public GameObject sandHitEffect;
-    public GameObject[] fleshHitEffects;
+    public GameObject fleshHitEffect;
     public GameObject woodHitEffect;
 
     // Use this for initialization
@@ -25,6 +25,13 @@ public class Bullet : MonoBehaviour {
             col.gameObject.GetComponent<EnemyUnit>().DealDamage(1);//Insert Damage here
 
             //Insert fleshHitEffects here
+            Instantiate(fleshHitEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+
+        if (col.gameObject.tag == "Terrain")
+        {
+            Instantiate(woodHitEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
