@@ -21,6 +21,7 @@ TagManager:
   - table
   - Floor
   - Bullet
+  - Terrain
   layers:
   - Default
   - TransparentFX

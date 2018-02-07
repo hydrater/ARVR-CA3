@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
 	public Transform AIDestination;
 	[HideInInspector]
 	public float enemyCount = 5;
+    public float timeLeft = 5f;
 
     public AudioSource inGameSound;
     public AudioSource gameEndSound;
@@ -35,15 +36,24 @@ public class GameManager : MonoBehaviour {
 
 	void Update()
 	{
-		if (temp.IsGrabbed() && !isRunning)
+        if (!isRunning)
         {
-            StartGame ();
-		}
+            timeLeft -= Time.deltaTime;
+            if (timeLeft < 0)
+            {
+                if (temp.IsGrabbed())
+                {
+
+                    StartGame();
+                }
+            }
+        }
         Debug.Log(isRunning);
 	}
 	
 	public void StartGame()
     {
+        timeLeft = 5f;
         inGameSound.Play();
         isRunning = true;
 		waveUI.text = "1";
@@ -59,12 +69,12 @@ public class GameManager : MonoBehaviour {
         StartCoroutine(game);
     }
 
-	public void EndGame()
-	{
-		StopCoroutine(game);
+    public void EndGame()
+    {
+        StopCoroutine(game);
         inGameSound.Stop();
         gameEndSound.Play();
-		isRunning = false;
+        isRunning = false;
 		foreach (GameObject i in GameObject.FindGameObjectsWithTag("Enemy"))
 		{
 			Destroy (i);
@@ -73,7 +83,8 @@ public class GameManager : MonoBehaviour {
 		deathText.text = DeathText.Replace("\\n", "\n");
 		ammoCount.text = " ";
 		cabinHealth.text = " ";
-	}
+        
+    }
 
 	IEnumerator spawnMachine()
 	{
